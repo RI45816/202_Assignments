@@ -18,7 +18,7 @@ void printEach(int num); //Function Prototype
 int main () {
   cout << "Welcome to Lab 7" << endl;
   int num = 10; //New integer
-  int *ptrNum = num; //New pointer to num
+  int *ptrNum = &num; //New pointer to num
   srand(time(NULL)); //Seeds the random number generator
   num = rand(); //Generates a new random number for num
   cout << num << endl; //Prints num
