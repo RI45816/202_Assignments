@@ -46,7 +46,7 @@ void DNA::Clear() {
     while (next != NULL) {
         curr = next;
         next = next->m_next;
-        *curr = 0;
+        delete curr;
     }
 }
 
