@@ -46,7 +46,7 @@ void DNA::Clear() {
     while (next != NULL) {
         curr = next;
         next = next->m_next;
-        delete curr;
+        *curr = 0;
     }
 }
 
@@ -80,6 +80,7 @@ void DNA::InsertEnd(char payload) {
 
     // Increment the size counter
     this->m_size++;
+
     return;
 }
 
