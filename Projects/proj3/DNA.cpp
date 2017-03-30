@@ -129,7 +129,6 @@ void DNA::ParseTrinucleotides() {
         codon += curr->m_payload;
         if (!(++counter % TRINUCLEOTIDE_SIZE)) {
             m_trinucleotides.push_back(codon);
-            cout << codon << endl;
             codon = "";
         }
         curr = curr->m_next;
