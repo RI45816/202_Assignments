@@ -34,6 +34,6 @@ void printEach(int num){
   //Iterates through the number and prints each number out in reverse order
   for(int i = 0; i < numDigits ; i++){
     cout << num % (10) << endl;
-    num *= 10;
+    num /= 10;
   }
 }
