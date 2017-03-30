@@ -99,7 +99,5 @@ void Sequencer::mainMenu() {
 }
 
 Sequencer::~Sequencer() {
-    DNA *dna = &this->m_dna;
-    delete dna;
 }
 //
