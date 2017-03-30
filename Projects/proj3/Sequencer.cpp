@@ -19,12 +19,35 @@
  ** 
  *********************************************/
 #include <iostream>
+#include <fstream>
 #include "Sequencer.h"
 
 using namespace std;
 
-//Sequencer::Sequencer() {
-//}
+// Sequencer
+//  Build the DNA (linked list)
+
+Sequencer::Sequencer(string fileName) : m_fileName(fileName) {
+    readFile();
+    m_dna.Display(2);
+}
+
+
+
+// ReadFile
+// Load a file of nucleotides into the DNA
+
+void Sequencer::readFile() {
+
+    // File reader variables
+    ifstream rawDNA(m_fileName.c_str());
+    char line;
+
+    // Read the file and create the DNA strand
+    while (rawDNA.get(line))
+        m_dna.InsertEnd(line);
+}
+
 //
 //Sequencer::Sequencer(const Sequencer& orig) {
 //}

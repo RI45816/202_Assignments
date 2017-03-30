@@ -51,6 +51,7 @@ struct Nucleotide {
             case 'C': return 'G';
                 break;
         }
+        return ' ';
     }
 };
 
