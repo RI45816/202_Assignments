@@ -26,6 +26,8 @@
 #include <iostream>
 #include <iomanip>
 #include <cmath>
+#include <vector>
+
 using namespace std;
 
 //Constant number of nucleotides in trinucleotide
@@ -82,6 +84,10 @@ public:
     //     Trinucleotides are just three nucleotides in a row.
     //post: Searches the linked list for specific sequence; outputs results
     void NumAmino(string name, string trinucleotide);
+    //name: NumAmino
+    //pre: Takes in an trinucleotide codon
+    //post: Searches the linked list for specific sequence; outputs results
+    void NumAmino(string trinucleotide);
     //name: Sequence
     //pre: Takes in full genetic code of one polynucleotide and looks at 
     //     one trinucleotide at a time.
@@ -104,10 +110,16 @@ public:
     //pre: Takes in a linked list (DNA)
     //post: Clears out the linked list (all nodes too)
     void Clear();
+    //name: ParseTrinucleotides
+    //pre: Takes in a linked list (DNA)
+    //post: Parse the polynucleotide into an array of trinucleotides
+    void ParseTrinucleotides();
 private:
     Nucleotide *m_head;
     Nucleotide *m_tail;
     int m_size;
+    vector<string> m_trinucleotides;
+    vector<string> m_aminoAcids;
 };
 
 #endif

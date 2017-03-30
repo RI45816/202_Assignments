@@ -19,6 +19,7 @@
  ** 
  *********************************************/
 #include <iostream>
+#include <vector>
 #include "DNA.h"
 
 using namespace std;
@@ -28,6 +29,7 @@ using namespace std;
 // Initialize an empty linked list (DNA strand)
 
 DNA::DNA() {
+    m_head = m_tail = NULL;
     m_size = 0;
 }
 
@@ -44,7 +46,7 @@ void DNA::Clear() {
     while (next != NULL) {
         curr = next;
         next = next->m_next;
-        *curr = NULL;
+        *curr = 0;
     }
 }
 
@@ -98,6 +100,7 @@ void DNA::Display(int numStrand) {
     else
         return;
 
+    cout << (numStrand == 1 ? "Leading Strand" : "Base Pairs") << endl;
     // Go through each node, starting at the first, and print the nucleotide
     while (curr != NULL) {
         if (numStrand == 1)
@@ -106,9 +109,69 @@ void DNA::Display(int numStrand) {
             cout << curr->m_payload << "-" << curr->ComplimentaryNucleotide() << endl;
         curr = curr->m_next;
     }
+
+    cout << "END" << endl;
+    cout << m_size << " base pairs listed." << endl;
+    cout << m_size / TRINUCLEOTIDE_SIZE << " trinucleotides listed." << endl;
+
+}
+
+// ParseTrinucleotides
+// Parse polynucleotide into array of trinucleotides
+
+void DNA::ParseTrinucleotides() {
+    Nucleotide * curr = m_head;
+    int counter = 0; // Count the number of nucleotides in the codon
+    string codon = ""; // Track the letter of the codon
+
+    while (curr != NULL) {
+        codon += curr->m_payload;
+        if (!(++counter % TRINUCLEOTIDE_SIZE)) {
+            m_trinucleotides.push_back(codon);
+            cout << codon << endl;
+            codon = "";
+        }
+        curr = curr->m_next;
+    }
 }
 
 
+// Sequence
+// Converts trinucleotides to amino acids 
+
+void DNA::Sequence() {
+
+    cout << "Amino Acid List:" << endl;
+
+    int numAminoAcids = 0; // Number of amino acids identified
+
+    // Loop through trinucleotide array
+    for (int i = 0; i < m_size / TRINUCLEOTIDE_SIZE; i++) {
+
+        // Translate trinucleotide to amino acid
+        string aminoAcid = Translate(m_trinucleotides[i]);
+        if (aminoAcid != "Unknown")
+            numAminoAcids++;
+        cout << aminoAcid << endl;
+    }
+    cout << "Total Amino Acids Identified: " << numAminoAcids << endl;
+}
+
+// NumAmino
+// Count the number of instances of a trinucleotide codon
+
+void DNA::NumAmino(string name, string trinucleotide) {
+
+    int numOccurences = 0; // Track the number of occurrences of a certain codon
+    for (int i = 0; i < m_size / TRINUCLEOTIDE_SIZE; i++)
+        if (m_trinucleotides[i] == trinucleotide)
+            numOccurences++;
+    cout << name << ": " << numOccurences << " identified" << endl;
+}
+
+void DNA::NumAmino(string trinucleotide) {
+    NumAmino(Translate(trinucleotide), trinucleotide);
+}
 
 
 
