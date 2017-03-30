@@ -49,9 +49,7 @@ void Sequencer::readFile() {
 }
 
 //
-//Sequencer::Sequencer(const Sequencer& orig) {
-//}
-//
-//Sequencer::~Sequencer() {
-//}
+Sequencer::~Sequencer() {
+    m_dna = NULL;
+}
 //
