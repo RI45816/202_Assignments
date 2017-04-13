@@ -21,11 +21,11 @@ string Birthday::SetLit(bool isLit)
 {
   if (m_isNoExtinguish){
     cout << "You cannot blow the birthday candle out!" << endl;
-    m_isLit = false;
+    m_isLit = true;
     return "Yes";
   }
   else {
-    m_isLit = true;
+    m_isLit = false;
     return "No";
   }
 }

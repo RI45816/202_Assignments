@@ -4,7 +4,6 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
-      <itemPath>Scented.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
@@ -13,7 +12,6 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
-      <itemPath>Scented.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
                    displayName="Test Files"
@@ -24,10 +22,10 @@
                    displayName="Important Files"
                    projectFiles="false"
                    kind="IMPORTANT_FILES_FOLDER">
-      <itemPath>Makefile</itemPath>
+      <itemPath>Makefile2</itemPath>
     </logicalFolder>
   </logicalFolder>
-  <projectmakefile>Makefile</projectmakefile>
+  <projectmakefile>Makefile2</projectmakefile>
   <confs>
     <conf name="Debug" type="1">
       <toolsSet>
@@ -37,10 +35,6 @@
       </toolsSet>
       <compileType>
       </compileType>
-      <item path="Scented.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="Scented.h" ex="false" tool="3" flavor2="0">
-      </item>
     </conf>
     <conf name="Release" type="1">
       <toolsSet>
@@ -62,10 +56,6 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
-      <item path="Scented.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="Scented.h" ex="false" tool="3" flavor2="0">
-      </item>
     </conf>
   </confs>
 </configurationDescriptor>
