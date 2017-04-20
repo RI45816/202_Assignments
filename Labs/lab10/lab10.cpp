@@ -10,6 +10,8 @@ int main()
 
   ia.AddToAll(5);
   
+  ia+5;
+  
   // Print out the number of errors/edge cases found
   cout << endl << endl << IntArray::GetProgress() << endl;
     
