@@ -9,9 +9,9 @@ class Book{
 
  public:
   Book(string name, string m_author);
-  void Borrow();
-  void Open();
-  void Close();
+  virtual void Borrow() =0;
+  virtual void Open() =0;
+  virtual void Close()=0;
   void Bookmark();
 
  protected:
