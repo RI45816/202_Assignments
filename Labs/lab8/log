@@ -1,0 +1,2 @@
+g++ -Wall -c Scented.cpp
+g++ -Wall -c Scented.cpp
