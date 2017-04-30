@@ -11,20 +11,19 @@
  *  Params: 
  * Effects: 
  ***********************************************************************/
-Plant::Plant()
-{
+Plant::Plant() {
+    m_isAlive=true;
+    m_isDiseased=false;
+    m_size = 0;
 }
-
 
 /***********************************************************************
  *  Method: Plant::~Plant
  *  Params: 
  * Effects: 
  ***********************************************************************/
-Plant::~Plant()
-{
+Plant::~Plant() {
 }
-
 
 /***********************************************************************
  *  Method: Plant::GetIsDiseased
@@ -33,13 +32,9 @@ Plant::~Plant()
  * Effects: 
  ***********************************************************************/
 bool
-Plant::GetIsDiseased()
-{
-    bool dummy;
-
-    return dummy;
+Plant::GetIsDiseased() {
+    return m_isDiseased;
 }
-
 
 /***********************************************************************
  *  Method: Plant::GetIsAlive
@@ -48,13 +43,9 @@ Plant::GetIsDiseased()
  * Effects: 
  ***********************************************************************/
 bool
-Plant::GetIsAlive()
-{
-    bool dummy;
-
-    return dummy;
+Plant::GetIsAlive() {
+    return m_isAlive;
 }
-
 
 /***********************************************************************
  *  Method: Plant::GetSize
@@ -63,13 +54,9 @@ Plant::GetIsAlive()
  * Effects: 
  ***********************************************************************/
 int
-Plant::GetSize()
-{
-    int dummy;
-
-    return dummy;
+Plant::GetSize() {
+    return m_size;
 }
-
 
 /***********************************************************************
  *  Method: Plant::SetSize
@@ -78,10 +65,9 @@ Plant::GetSize()
  * Effects: 
  ***********************************************************************/
 void
-Plant::SetSize(int size)
-{
+Plant::SetSize(int size) {
+    m_size = size;
 }
-
 
 /***********************************************************************
  *  Method: Plant::SetIsAlive
@@ -90,10 +76,9 @@ Plant::SetSize(int size)
  * Effects: 
  ***********************************************************************/
 void
-Plant::SetIsAlive(bool isAlive)
-{
+Plant::SetIsAlive(bool isAlive) {
+    m_isAlive = isAlive;
 }
-
 
 /***********************************************************************
  *  Method: Plant::SetIsDiseased
@@ -102,8 +87,7 @@ Plant::SetIsAlive(bool isAlive)
  * Effects: 
  ***********************************************************************/
 void
-Plant::SetIsDiseased(bool isDiseased)
-{
+Plant::SetIsDiseased(bool isDiseased) {
+    m_isDiseased = isDiseased;
 }
-
 

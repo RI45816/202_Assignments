@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configurationDescriptor version="97">
+  <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
+    <logicalFolder name="HeaderFiles"
+                   displayName="Header Files"
+                   projectFiles="true">
+    </logicalFolder>
+    <logicalFolder name="proj4" displayName="proj4" projectFiles="true">
+      <itemPath>Flower.cpp</itemPath>
+      <itemPath>Flower.h</itemPath>
+      <itemPath>Fruit.h</itemPath>
+      <itemPath>Garden.h</itemPath>
+      <itemPath>Headers.txt</itemPath>
+      <itemPath>Makefile</itemPath>
+      <itemPath>Plant.cpp</itemPath>
+      <itemPath>Plant.h</itemPath>
+      <itemPath>Tree.cpp</itemPath>
+      <itemPath>Tree.h</itemPath>
+      <itemPath>Vegetable.cpp</itemPath>
+      <itemPath>Vegetable.h</itemPath>
+      <itemPath>driver.cpp</itemPath>
+      <itemPath>driver.h</itemPath>
+      <itemPath>proj4-Makefile.mk</itemPath>
+      <itemPath>proj4-Makefile1.mk</itemPath>
+      <itemPath>proj4.exe</itemPath>
+    </logicalFolder>
+    <logicalFolder name="ResourceFiles"
+                   displayName="Resource Files"
+                   projectFiles="true">
+    </logicalFolder>
+    <logicalFolder name="SourceFiles"
+                   displayName="Source Files"
+                   projectFiles="true">
+    </logicalFolder>
+    <logicalFolder name="TestFiles"
+                   displayName="Test Files"
+                   projectFiles="false"
+                   kind="TEST_LOGICAL_FOLDER">
+    </logicalFolder>
+    <logicalFolder name="ExternalFiles"
+                   displayName="Important Files"
+                   projectFiles="false"
+                   kind="IMPORTANT_FILES_FOLDER">
+      <itemPath>proj4-Makefile1.mk</itemPath>
+    </logicalFolder>
+  </logicalFolder>
+  <sourceRootList>
+    <Elem>.</Elem>
+  </sourceRootList>
+  <projectmakefile>proj4-Makefile1.mk</projectmakefile>
+  <confs>
+    <conf name="Debug" type="2">
+      <toolsSet>
+        <compilerSet>default</compilerSet>
+        <dependencyChecking>true</dependencyChecking>
+        <rebuildPropChanged>false</rebuildPropChanged>
+      </toolsSet>
+      <compileType>
+      </compileType>
+      <item path="Flower.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Flower.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Fruit.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Garden.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Headers.txt" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Makefile" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Plant.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Plant.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Tree.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Tree.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Vegetable.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Vegetable.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="driver.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="driver.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="proj4-Makefile.mk" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="proj4-Makefile1.mk" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="proj4.exe" ex="false" tool="3" flavor2="0">
+      </item>
+    </conf>
+    <conf name="Release" type="2">
+      <toolsSet>
+        <compilerSet>default</compilerSet>
+        <dependencyChecking>true</dependencyChecking>
+        <rebuildPropChanged>false</rebuildPropChanged>
+      </toolsSet>
+      <compileType>
+        <cTool>
+          <developmentMode>5</developmentMode>
+        </cTool>
+        <ccTool>
+          <developmentMode>5</developmentMode>
+        </ccTool>
+        <fortranCompilerTool>
+          <developmentMode>5</developmentMode>
+        </fortranCompilerTool>
+        <asmTool>
+          <developmentMode>5</developmentMode>
+        </asmTool>
+      </compileType>
+      <item path="Flower.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Flower.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Fruit.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Garden.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Headers.txt" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Makefile" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Plant.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Plant.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Tree.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Tree.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Vegetable.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Vegetable.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="driver.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="driver.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="proj4-Makefile.mk" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="proj4-Makefile1.mk" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="proj4.exe" ex="false" tool="3" flavor2="0">
+      </item>
+    </conf>
+  </confs>
+</configurationDescriptor>
