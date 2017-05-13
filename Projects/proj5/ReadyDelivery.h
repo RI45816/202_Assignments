@@ -40,7 +40,7 @@ class ReadyDelivery{
   //Name: GetTruck
   //Precondition: Requires that a truck has been built
   //Postcondition: Returns a vector of all trucks
-  vector< Truck<Item, MAX_CAPACITY> >& GetTruck();
+  vector< Truck<Item, MAX_CAPACITY> > GetTruck();
 
   //Name: GetDelivery
   //Precondition: Requires that a delivery has been built
@@ -50,15 +50,23 @@ class ReadyDelivery{
   //Name: GetItem
   //Precondition: Requires that an item vectors has been built
   //Postcondition: Returns a vector of all items
-  vector< Item > GetItem();
+  vector<Item> GetItem();
+  
+  //Name: Split
+  //Precondition: A string with tab characters in it
+  //Postcondition: Returns the string split into a dynamic array
+  string * Split(string);
+//  vector<Item> GetItem() const;
+//  vector<Delivery> GetDelivery() const;
+//  vector<Truck<Item, MAX_CAPACITY> > GetTruck() const;
 
  private:
   string m_truckFile; //Name of the truck file
   string m_deliveryFile; //Name of the delivery file
   string m_itemFile; //Name of the item file
-  vector< Truck<Item, MAX_CAPACITY> > m_truck; //Vector of templated trucks
-  vector< Delivery> m_delivery; //Vector of deliveries
-  vector< Item> m_item; //Vector of items
+  vector<Truck<Item, MAX_CAPACITY> > m_truck; //Vector of templated trucks
+  vector<Delivery> m_delivery; //Vector of deliveries
+  vector<Item> m_item; //Vector of items
 };
 
 #endif

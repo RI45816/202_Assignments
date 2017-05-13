@@ -7,7 +7,7 @@
 #include "ManageDelivery.h"
 #include <iostream>
 
-ManageDelivery::ManageDelivery(vector<Truck<Item, MAX_CAPACITY>> truck, vector<Delivery> delivery, vector<Item> item)
+ManageDelivery::ManageDelivery(vector<Truck<Item, MAX_CAPACITY> > truck, vector<Delivery> delivery, vector<Item> item)
 {
     cerr << "ManageDelivery::ManageDelivery()" << endl;
 }

@@ -1,25 +1,5 @@
 g++ -Wall -g -c Item.cpp
-Item.cpp: In member function 'std::string Item::GetName() const':
-Item.cpp:26:1: warning: no return statement in function returning non-void [-Wreturn-type]
- }
- ^
-Item.cpp: In member function 'float Item::GetWeight() const':
-Item.cpp:33:1: warning: no return statement in function returning non-void [-Wreturn-type]
- }
- ^
 g++ -Wall -g -c Delivery.cpp
-Delivery.cpp: In member function 'std::string Delivery::GetName() const':
-Delivery.cpp:26:1: warning: no return statement in function returning non-void [-Wreturn-type]
- }
- ^
-Delivery.cpp: In member function 'int Delivery::GetNumItem() const':
-Delivery.cpp:33:1: warning: no return statement in function returning non-void [-Wreturn-type]
- }
- ^
-Delivery.cpp: In member function 'int Delivery::GetRTMinute() const':
-Delivery.cpp:40:1: warning: no return statement in function returning non-void [-Wreturn-type]
- }
- ^
 g++ -Wall -g -c ReadyDelivery.cpp
 ReadyDelivery.cpp:43:32: warning: '>>' operator is treated as two right angle brackets in C++11 [-Wc++0x-compat]
  vector<Truck<Item, MAX_CAPACITY>> &

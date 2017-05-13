@@ -6,6 +6,9 @@
  ***********************************************************************/
 #include "ReadyDelivery.h"
 #include <iostream>
+#include <fstream>
+
+using namespace std;
 
 ReadyDelivery::ReadyDelivery()
 {
@@ -13,16 +16,21 @@ ReadyDelivery::ReadyDelivery()
 }
 
 
-ReadyDelivery::ReadyDelivery(string truckFile, string deliveryFile, string itemFile)
+ReadyDelivery::ReadyDelivery(string truckFile, string deliveryFile, string itemFile) : m_truckFile(truckFile), m_deliveryFile(deliveryFile), m_itemFile(itemFile)
 {
-    cerr << "ReadyDelivery::ReadyDelivery()" << endl;
+    LoadItem();
 }
 
 
 void
 ReadyDelivery::LoadTruck()
 {
-    cerr << "ReadyDelivery::LoadTruck()" << endl;
+    // Open the truck file
+    ifstream file(m_truckFile.c_str());
+    string line;
+    
+//    while (getline(file,line))
+//        m_truck()
 }
 
 
@@ -33,31 +41,59 @@ ReadyDelivery::LoadDelivery()
 }
 
 
+// LoadItem
+// Load the items
 void
 ReadyDelivery::LoadItem()
 {
-    cerr << "ReadyDelivery::LoadItem()" << endl;
+    // Open the truck file
+    ifstream file(m_itemFile.c_str());
+    string line;
+    
+    while (getline(file,line))
+        Split(line);
+    
+    
+}
+
+// Split
+// Split the string into an array
+
+string* ReadyDelivery::Split(string s) {
+    static string arr[3];
+    
+    int pos = 0;
+    int index = 0;
+   
+    while (~(pos=s.find("    ",pos))) {
+    cout << pos;
+    arr[index++] = s.substr(0,pos);
+    cout << arr[index-1];
+    s=s.substr(pos);
+    cout << s;
+    }
+    arr[index++] = s;
+    return arr;
+//do
+//   {
+//    pos = s.find("    ",pos);
+//        
+//    }
+//    while (pos != string::npos)
+}
+
+vector<Item> ReadyDelivery::GetItem() {
+    return m_item;
+}
+
+vector<Delivery> ReadyDelivery::GetDelivery() {
+    return m_delivery;
+}
+
+vector<Truck<Item, MAX_CAPACITY> > ReadyDelivery::GetTruck() {
+    return m_truck;
 }
 
 
-vector<Truck<Item, MAX_CAPACITY>> &
-ReadyDelivery::GetTruck()
-{
-    cerr << "ReadyDelivery::GetTruck()" << endl;
-}
-
-
-vector<Delivery>
-ReadyDelivery::GetDelivery()
-{
-    cerr << "ReadyDelivery::GetDelivery()" << endl;
-}
-
-
-vector<Item>
-ReadyDelivery::GetItem()
-{
-    cerr << "ReadyDelivery::GetItem()" << endl;
-}
 
 

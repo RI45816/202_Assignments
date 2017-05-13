@@ -5,6 +5,16 @@
     </code-assistance-data>
     <data xmlns="http://www.netbeans.org/ns/make-project-private/1">
         <activeConfTypeElem>0</activeConfTypeElem>
-        <activeConfIndexElem>0</activeConfIndexElem>
+        <activeConfIndexElem>1</activeConfIndexElem>
     </data>
+    <preferences xmlns="http://www.netbeans.org/ns/auxiliary-configuration-preferences/1">
+        <module name="org-netbeans-modules-cnd-discovery">
+            <property name="rootFolder" value="C:\Users\amozu\OneDrive - UMBC\SP2017\CMSC 202\202_Assignments\Projects\proj5"/>
+            <property name="make-log-file" value="C:\Users\amozu\OneDrive - UMBC\SP2017\CMSC 202\202_Assignments\Projects\proj5"/>
+            <property name="folder" value="C:\Users\amozu\OneDrive - UMBC\SP2017\CMSC 202\202_Assignments\Projects\proj5"/>
+            <property name="model-folder" value="C:\Users\amozu\OneDrive - UMBC\SP2017\CMSC 202\202_Assignments\Projects\proj5"/>
+            <property name="libraries" value=""/>
+            <property name="executable" value="C:\Users\amozu\OneDrive - UMBC\SP2017\CMSC 202\202_Assignments\Projects\proj5"/>
+        </module>
+    </preferences>
 </project-private>
