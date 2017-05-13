@@ -49,10 +49,10 @@ int main(int argc, char** argv) {
     srand(time(NULL));
 
     for (int i = 0; i < 50; i++) {
-//        v.tick();
-//        cout << v.GetSize() << " " << v;
-//        f.tick();
-//        cout << f.GetSize() << " " << f;
+        v.tick();
+        cout << v.GetSize() << " " << v;
+        f.tick();
+        cout << f.GetSize() << " " << f;
         t.tick();
         cout << t.GetSize() << " " << t;
     }

@@ -1,0 +1,65 @@
+g++ -ansi -Wall -c Item.cpp 
+Item.cpp: In member function 'std::string Item::GetName() const':
+Item.cpp:26:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
+Item.cpp: In member function 'float Item::GetWeight() const':
+Item.cpp:33:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
+g++ -ansi -Wall -c Delivery.cpp 
+Delivery.cpp: In member function 'std::string Delivery::GetName() const':
+Delivery.cpp:26:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
+Delivery.cpp: In member function 'int Delivery::GetNumItem() const':
+Delivery.cpp:33:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
+Delivery.cpp: In member function 'int Delivery::GetRTMinute() const':
+Delivery.cpp:40:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
+g++ -ansi -Wall   -c -o driver.o driver.cpp
+g++ -ansi -Wall -c Tqueue.cpp 
+Tqueue.cpp:11:1: error: invalid use of template-name 'Tqueue' without an argument list
+ Tqueue::Tqueue()
+ ^
+Tqueue.cpp:18:1: error: invalid use of template-name 'Tqueue' without an argument list
+ Tqueue::Tqueue(const Tqueue<T, N> &x)
+ ^
+Tqueue.cpp:25:1: error: invalid use of template-name 'Tqueue' without an argument list
+ Tqueue::~Tqueue()
+ ^
+Tqueue.cpp:33:1: error: 'template<class T, int N> class Tqueue' used without template parameters
+ Tqueue::enqueue(T data)
+ ^
+Tqueue.cpp:41:1: error: 'template<class T, int N> class Tqueue' used without template parameters
+ Tqueue::dequeue(T &)
+ ^
+Tqueue.cpp:49:1: error: 'template<class T, int N> class Tqueue' used without template parameters
+ Tqueue::queueFront(T &)
+ ^
+Tqueue.cpp:57:1: error: 'template<class T, int N> class Tqueue' used without template parameters
+ Tqueue::isEmpty()
+ ^
+Tqueue.cpp: In function 'int isEmpty()':
+Tqueue.cpp:60:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
+Tqueue.cpp: At global scope:
+Tqueue.cpp:65:1: error: 'template<class T, int N> class Tqueue' used without template parameters
+ Tqueue::isFull()
+ ^
+Tqueue.cpp: In function 'int isFull()':
+Tqueue.cpp:68:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
+Tqueue.cpp: At global scope:
+Tqueue.cpp:73:1: error: 'template<class T, int N> class Tqueue' used without template parameters
+ Tqueue::operator=(Tqueue<T, N> y)
+ ^
+Tqueue.cpp:73:33: error: 'Tqueue<T, N>& operator=(Tqueue<T, N>)' must be a nonstatic member function
+ Tqueue::operator=(Tqueue<T, N> y)
+                                 ^
+make: *** [Makefile:12: Tqueue.o] Error 1
