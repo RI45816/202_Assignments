@@ -1,2 +1,0 @@
-Smith	 3  5
-Jones	 5  7
