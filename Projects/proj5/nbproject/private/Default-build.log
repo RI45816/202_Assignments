@@ -1,0 +1,54 @@
+g++ -Wall -g -c Item.cpp
+Item.cpp: In member function 'std::string Item::GetName() const':
+Item.cpp:26:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
+Item.cpp: In member function 'float Item::GetWeight() const':
+Item.cpp:33:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
+g++ -Wall -g -c Delivery.cpp
+Delivery.cpp: In member function 'std::string Delivery::GetName() const':
+Delivery.cpp:26:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
+Delivery.cpp: In member function 'int Delivery::GetNumItem() const':
+Delivery.cpp:33:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
+Delivery.cpp: In member function 'int Delivery::GetRTMinute() const':
+Delivery.cpp:40:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
+g++ -Wall -g -c ReadyDelivery.cpp
+ReadyDelivery.cpp:43:32: warning: '>>' operator is treated as two right angle brackets in C++11 [-Wc++0x-compat]
+ vector<Truck<Item, MAX_CAPACITY>> &
+                                ^
+ReadyDelivery.cpp:43:32: note: suggest parentheses around '>>' expression
+ReadyDelivery.cpp:44:16: error: 'ReadyDelivery::GetTruck()' cannot appear in a constant-expression
+ ReadyDelivery::GetTruck()
+                ^
+ReadyDelivery.cpp:44:25: error: a function call cannot appear in a constant-expression
+ ReadyDelivery::GetTruck()
+                         ^
+ReadyDelivery.cpp:44:25: error: '&' cannot appear in a constant-expression
+ReadyDelivery.cpp:44:25: error: template argument 2 is invalid
+ReadyDelivery.cpp:45:1: warning: extended initializer lists only available with -std=c++11 or -std=gnu++11
+ {
+ ^
+ReadyDelivery.cpp:43:8: error: template argument 1 is invalid
+ vector<Truck<Item, MAX_CAPACITY>> &
+        ^
+ReadyDelivery.cpp:43:8: error: template argument 2 is invalid
+ReadyDelivery.cpp:45:1: error: expected unqualified-id before '{' token
+ {
+ ^
+ReadyDelivery.cpp: In member function 'std::vector<Delivery> ReadyDelivery::GetDelivery()':
+ReadyDelivery.cpp:54:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
+ReadyDelivery.cpp: In member function 'std::vector<Item> ReadyDelivery::GetItem()':
+ReadyDelivery.cpp:61:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
+make: *** [makefile:11: ReadyDelivery.o] Error 1

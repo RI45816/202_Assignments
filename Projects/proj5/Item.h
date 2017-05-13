@@ -16,6 +16,8 @@ public:
   Item();
   Item(string iName, float iWeight);
 
+  
+
   //Name: GetName/GetWeight
   //Precondition: None
   //Postcondition: Returns name or weight

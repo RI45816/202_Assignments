@@ -17,15 +17,15 @@ Delivery.o: Delivery.cpp Delivery.h
 	$(CXX) $(CXXFLAGS) -c Delivery.cpp
 
 #Use these to test the Tqueue and Truck but make sure to comment out or delete!
-#Truck.o: Truck.h Tqueue.o
-#	$(CXX) $(CXXFLAGS) -c Truck.h
+Truck.o: Truck.h Tqueue.o
+	$(CXX) $(CXXFLAGS) -c Truck.h
 
-#Tqueue.o: Tqueue.h
-#	$(CXX) $(CXXFLAGS) -c Tqueue.h
+Tqueue.o: Tqueue.h
+	$(CXX) $(CXXFLAGS) -c Tqueue.h
 
 clean:
 	rm *.o*
-	rm *~ 
+	# rm *~ 
 
 #Rules to test your projects
 run:
