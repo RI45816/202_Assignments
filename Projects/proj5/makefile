@@ -9,10 +9,12 @@ DEPS = $(wildcard *.h)
 
 all: $(EXE) run1
 
-build: clean all
+c: clean all
+
+
 	
 $(EXE): $(OBJS)
-	$(CXX) $(OBJS) -o $(EXE)	
+	$(CXX) $(OBJS) -o $(EXE)
 	
 	
 # ManageDelivery.o: ManageDelivery.h ManageDelivery.cpp Item.o Delivery.o Tqueue.h Truck.h ReadyDelivery.o
@@ -42,7 +44,7 @@ clean:
 #Rules to test your projects
 run:
 	./proj5
-
+	
 run1:
 	./proj5 proj5_truck_t1.txt proj5_delivery_t1.txt proj5_item_t1.txt
 
@@ -53,7 +55,7 @@ run3:
 	./proj5 proj5_truck_t3.txt proj5_delivery_t3.txt proj5_item_t3.txt
 
 #rules to test using valgrind
-valgrind1:
+valgrind1: clean $(EXE)
 	valgrind ./proj5 proj5_truck_t1.txt proj5_delivery_t1.txt proj5_item_t1.txt
 
 valgrind2:
@@ -67,5 +69,5 @@ depend: .depend
 .depend: $(DEPS)
 	rm -f ./.depend
 	$(CC) $(CFLAGS) -MM $^ > ./.depend;
-
+	
 include .depend

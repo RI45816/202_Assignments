@@ -43,16 +43,16 @@ public:
   //Name: Overloaded assignment operator - Not used but required for project 5
   //Precondition: Existing Tqueue
   //Postcondition: Sets one Tqueue to same as a second Tqueue using =
-//  Tqueue<T,N>& operator=( Tqueue<T,N> y); //Overloaded assignment operator for queue
+  Tqueue<T,N>& operator=(Tqueue<T,N> y); //Overloaded assignment operator for queue
   
   
   
 
   
 private:
+  int m_back; //Back of the queue
   T* m_data; //Data of the queue (Must be dynamically allocated array)
   int m_front; //Front of the queue
-  int m_back; //Back of the queue
 };
 
 //**** Add class definition below ****
@@ -60,24 +60,23 @@ private:
 Tqueue<T,N>::Tqueue()
 {
      cout << 7;
-//    m_data=new T[N];
-//    m_back=m_front=N;
+    m_data=new T[N];
+    m_back=m_front=N-1;
 }
 
 
 template <class T, int N>
-Tqueue<T,N>::Tqueue(const Tqueue<T, N> &x)
+Tqueue<T,N>::Tqueue(const Tqueue<T, N> &x) : m_back(x.m_back), m_data(m_data), m_front(x.m_front)
 {
-    m_data=x.m_data;
-    m_front=x.m_front;
-    m_back=x.m_back;
+    for (int i=0; i<N;i++)
+        m_data[i]=x.m_data[i];
 }
 
 
 template <class T, int N>
 Tqueue<T,N>::~Tqueue()
 {
-    delete m_data;
+    delete[] m_data;
 }
 
 
@@ -121,15 +120,18 @@ Tqueue<T,N>::isFull()
 }
 
 
-//template <class T, int N>
-//Tqueue<T, N> &
-//Tqueue<T,N>::operator=(Tqueue<T, N> y)
-//{
-//    m_back = y.m_back;
-//    m_data = y.m_data;
-//    m_front = y.m_back;
-//    return *this;
-//}
+template <class T, int N>
+Tqueue<T, N> &
+Tqueue<T,N>::operator=( Tqueue<T, N> y)
+{
+    if (this != &y){
+    m_back = y.m_back;
+    m_data = y.m_data;
+    m_front = y.m_back;
+    }
+    return *this;
+}
+
 
 
 #endif

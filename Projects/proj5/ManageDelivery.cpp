@@ -9,10 +9,8 @@
 
 ManageDelivery::ManageDelivery(vector<Truck<Item, MAX_CAPACITY> > truck, vector<Delivery> delivery, vector<Item> item) : m_truck(truck), m_delivery(delivery), m_item(item)
 {
-//    cout << 5;
-//    delete &m_truck;
-//    delete &m_delivery;
-//    delete &m_item;
+    cout << 8;
+    
 }
 
 

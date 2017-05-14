@@ -16,9 +16,9 @@ ReadyDelivery::ReadyDelivery() {
 
 ReadyDelivery::ReadyDelivery(string truckFile, string deliveryFile, string itemFile) : m_truckFile(truckFile), m_deliveryFile(deliveryFile), m_itemFile(itemFile) {
     cout << 3;
-    LoadItem();
-    LoadDelivery();
-    LoadTruck();
+//    LoadItem();
+//    LoadDelivery();
+//    LoadTruck();
 }
 
 
@@ -27,10 +27,10 @@ ReadyDelivery::ReadyDelivery(string truckFile, string deliveryFile, string itemF
 void
 ReadyDelivery::LoadTruck() {
     
-    cout<<5;
+    cout << 5;
     
     // Open the truck file
-    ifstream file(m_itemFile.c_str());
+    ifstream file(m_truckFile.c_str());
 
     // Load the truck file
     stringstream ss; // Stream variable
@@ -41,17 +41,16 @@ ReadyDelivery::LoadTruck() {
     int capacity;
     
     
-    Truck<Item,MAX_CAPACITY> t(name,capacity);
-    while (ss >> name >> capacity) {
+    while (ss >> name >> capacity) {}
 //        m_truck.push_back(Truck<Item,MAX_CAPACITY>(name,capacity));
-    }
+    
 
 }
 
 void
 ReadyDelivery::LoadDelivery() {
     // Open the item file
-    ifstream file(m_itemFile.c_str());
+    ifstream file(m_deliveryFile.c_str());
 
     // Load the item file
     stringstream ss; // Stream variable

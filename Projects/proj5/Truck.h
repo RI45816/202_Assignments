@@ -108,8 +108,8 @@ Truck<T,N>::Truck(string inName, int capacity) : m_name(inName), m_capacity(capa
 template <class T, int N>
 Truck<T,N>::~Truck()
 {
-    delete &m_curDelivery;
-    delete &m_item;
+    cout << 9;
+//    m_curDelivery.erase();
 }
 
 
