@@ -8,6 +8,8 @@ DEPS = $(wildcard *.h)
 	# $(CXX) $(CXXFLAGS) Tqueue.h driver.cpp Item.o Truck.h ReadyDelivery.o ManageDelivery.o Delivery.o -o proj5
 
 all: $(EXE) run1
+
+build: clean all
 	
 $(EXE): $(OBJS)
 	$(CXX) $(OBJS) -o $(EXE)	
