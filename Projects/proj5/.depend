@@ -3,5 +3,6 @@ Truck.o: Truck.h Item.h Tqueue.h Delivery.h
 ManageDelivery.o: ManageDelivery.h ReadyDelivery.h Truck.h Item.h \
  Tqueue.h Delivery.h
 ReadyDelivery.o: ReadyDelivery.h Truck.h Item.h Tqueue.h Delivery.h
+stacktrace.o: stacktrace.h
 Item.o: Item.h
 Delivery.o: Delivery.h

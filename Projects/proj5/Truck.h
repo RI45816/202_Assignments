@@ -35,7 +35,7 @@ class Truck {
   //Name: GetItemAt (optional)
   //Precondition: Requires that the truck's item queue has been populated
   //Postcondition: Templated accessor for this truck's cargo at a specific location
-//  const T& GetItemAt(int index) const;
+  const T& GetItemAt(int index) const;
 
   //Name: AddItem (optional)
   //Precondition: Requires that the trucks have been loaded
@@ -101,6 +101,7 @@ private:
  template <class T, int N>
 Truck<T,N>::Truck(string inName, int capacity) : m_name(inName), m_capacity(capacity)
 {
+     cout << 6;
 }
 
 
@@ -120,19 +121,22 @@ Truck<T,N>::GetItem() const
 }
 
 
-//template <class T, int N>
-//const T &
-//Truck<T,N>::GetItemAt(int index) const
-//{
-//    return m_item.
-//}
+template <class T, int N>
+const T &
+Truck<T,N>::GetItemAt(int index) const
+{
+//    return m_item.m_data[index];
+    T t;
+    m_item.queueFront(t);
+    return t;
+}
 
 
 template <class T, int N>
 void
 Truck<T,N>::AddItem(T &inputObject)
 {
-    cerr << "Truck<T,N>::AddItem()" << endl;
+    return m_item.enqueue(inputObject);
 }
 
 

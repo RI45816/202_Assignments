@@ -15,44 +15,54 @@ ReadyDelivery::ReadyDelivery() {
 }
 
 ReadyDelivery::ReadyDelivery(string truckFile, string deliveryFile, string itemFile) : m_truckFile(truckFile), m_deliveryFile(deliveryFile), m_itemFile(itemFile) {
+    cout << 3;
     LoadItem();
-    LoadTruck();
     LoadDelivery();
+    LoadTruck();
 }
+
+
+
 
 void
 ReadyDelivery::LoadTruck() {
-        // Open the truck file
-    ifstream file(m_itemFile.c_str());
     
+    cout<<5;
+    
+    // Open the truck file
+    ifstream file(m_itemFile.c_str());
+
     // Load the truck file
     stringstream ss; // Stream variable
     ss << file.rdbuf(); // Read the file buffer
-    
+
     // Add the trucks
     string name; // Temp variable
     int capacity;
-//    while (ss >> name >> capacity) 
-//        m_truck.push_back(Truck(n1ame,capacity));
-  
+    
+    
+    Truck<Item,MAX_CAPACITY> t(name,capacity);
+    while (ss >> name >> capacity) {
+//        m_truck.push_back(Truck<Item,MAX_CAPACITY>(name,capacity));
+    }
 
 }
 
 void
 ReadyDelivery::LoadDelivery() {
-        // Open the item file
+    // Open the item file
     ifstream file(m_itemFile.c_str());
-    
+
     // Load the item file
     stringstream ss; // Stream variable
     ss << file.rdbuf(); // Read the file buffer
-    
+
     // Add the items
     string name; // Temp variable
     int numItems;
     int RTMinute;
-    while (ss >> name >>numItems >> RTMinute ) 
-        m_delivery.push_back(Delivery(name,numItems,RTMinute));
+    while (ss >> name >> numItems >> RTMinute)
+        m_delivery.push_back(Delivery(name, numItems, RTMinute));
 
 
 }
@@ -65,18 +75,19 @@ void
 ReadyDelivery::LoadItem() {
     // Open the item file
     ifstream file(m_itemFile.c_str());
-    
+
     // Load the item file
     stringstream ss; // Stream variable
     ss << file.rdbuf(); // Read the file buffer
-    
+
+    cout << 4;
     // Add the items
     string name; // Temp variable
     int weight;
-    while (ss >> name >> weight) 
-        m_item.push_back(Item(name,weight));
-
-
+    while (ss >> name >> weight)
+        m_item.push_back(Item(name, weight));
+    
+    file.close();
 }
 
 vector<Item> ReadyDelivery::GetItem() {

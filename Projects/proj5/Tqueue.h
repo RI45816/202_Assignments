@@ -59,7 +59,9 @@ private:
  template <class T, int N>
 Tqueue<T,N>::Tqueue()
 {
-    m_data=new T[N];
+     cout << 7;
+//    m_data=new T[N];
+//    m_back=m_front=N;
 }
 
 
@@ -83,23 +85,23 @@ template <class T, int N>
 void
 Tqueue<T,N>::enqueue(T data)
 {
-    cerr << "Tqueue<T,N>::enqueue()" << endl;
+    m_data[m_back--] = data;
 }
 
 
 template <class T, int N>
 void
-Tqueue<T,N>::dequeue(T &)
+Tqueue<T,N>::dequeue(T &t)
 {
-    cerr << "Tqueue<T,N>::dequeue()" << endl;
+    t = m_data[m_front--];
 }
 
 
 template <class T, int N>
 void
-Tqueue<T,N>::queueFront(T &)
+Tqueue<T,N>::queueFront(T &t)
 {
-    cerr << "Tqueue<T,N>::queueFront()" << endl;
+    t = m_data[m_front--];
 }
 
 
@@ -123,7 +125,10 @@ template <class T, int N>
 Tqueue<T, N> &
 Tqueue<T,N>::operator=(Tqueue<T, N> y)
 {
-    return y;
+    m_back = y.m_back;
+    m_data = y.m_data;
+    m_front = y.m_back;
+    return *this;
 }
 
 
