@@ -44,6 +44,11 @@ public:
   //Precondition: Existing Tqueue
   //Postcondition: Sets one Tqueue to same as a second Tqueue using =
   Tqueue<T,N>& operator=( Tqueue<T,N> y); //Overloaded assignment operator for queue
+  
+  
+  
+
+  
 private:
   T* m_data; //Data of the queue (Must be dynamically allocated array)
   int m_front; //Front of the queue
@@ -51,5 +56,75 @@ private:
 };
 
 //**** Add class definition below ****
+ template <class T, int N>
+Tqueue<T,N>::Tqueue()
+{
+    m_data=new T[N];
+}
+
+
+template <class T, int N>
+Tqueue<T,N>::Tqueue(const Tqueue<T, N> &x)
+{
+    m_data=x.m_data;
+    m_front=x.m_front;
+    m_back=x.m_back;
+}
+
+
+template <class T, int N>
+Tqueue<T,N>::~Tqueue()
+{
+    delete m_data;
+}
+
+
+template <class T, int N>
+void
+Tqueue<T,N>::enqueue(T data)
+{
+    cerr << "Tqueue<T,N>::enqueue()" << endl;
+}
+
+
+template <class T, int N>
+void
+Tqueue<T,N>::dequeue(T &)
+{
+    cerr << "Tqueue<T,N>::dequeue()" << endl;
+}
+
+
+template <class T, int N>
+void
+Tqueue<T,N>::queueFront(T &)
+{
+    cerr << "Tqueue<T,N>::queueFront()" << endl;
+}
+
+
+template <class T, int N>
+int
+Tqueue<T,N>::isEmpty()
+{
+    return ~~(m_front == m_back);
+}
+
+
+template <class T, int N>
+int
+Tqueue<T,N>::isFull()
+{
+    return ~(m_front == m_back);
+}
+
+
+template <class T, int N>
+Tqueue<T, N> &
+Tqueue<T,N>::operator=(Tqueue<T, N> y)
+{
+    return y;
+}
+
 
 #endif

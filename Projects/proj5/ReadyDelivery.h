@@ -52,13 +52,7 @@ class ReadyDelivery{
   //Postcondition: Returns a vector of all items
   vector<Item> GetItem();
   
-  //Name: Split
-  //Precondition: A string with tab characters in it
-  //Postcondition: Returns the string split into a dynamic array
-  string * Split(string);
-//  vector<Item> GetItem() const;
-//  vector<Delivery> GetDelivery() const;
-//  vector<Truck<Item, MAX_CAPACITY> > GetTruck() const;
+  
 
  private:
   string m_truckFile; //Name of the truck file

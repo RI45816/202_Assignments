@@ -4,7 +4,7 @@
 //Description: Driver for project 5 in CMSC 202 - Spring 2017
 
 #include "ReadyDelivery.h"
-//#include "ManageDelivery.h"
+#include "ManageDelivery.h"
 
 void title();
 
@@ -20,10 +20,11 @@ int main(int argc, char* argv[]) {
   else
     {
       ReadyDelivery R = ReadyDelivery(argv[1],argv[2],argv[3]); //Populates all vectors
-//      ManageDelivery M = ManageDelivery(R.GetTruck(), R.GetDelivery(), R.GetItem()); 
+      ManageDelivery M = ManageDelivery(R.GetTruck(), R.GetDelivery(), R.GetItem()); 
     }
   return 0;
 }
+
 
 void title() {
   cout << endl;

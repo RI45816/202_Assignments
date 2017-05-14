@@ -35,7 +35,7 @@ class Truck {
   //Name: GetItemAt (optional)
   //Precondition: Requires that the truck's item queue has been populated
   //Postcondition: Templated accessor for this truck's cargo at a specific location
-  const T& GetItemAt(int index) const;
+//  const T& GetItemAt(int index) const;
 
   //Name: AddItem (optional)
   //Precondition: Requires that the trucks have been loaded
@@ -87,6 +87,7 @@ class Truck {
   //Postcondition: Used to access the name of a truck
   string GetName() const;
 
+    
 private:
   string m_name;
   int m_capacity;
@@ -95,6 +96,108 @@ private:
   Tqueue<T,N> m_item;	
 };
 //Implement the class definition below
+
+
+ template <class T, int N>
+Truck<T,N>::Truck(string inName, int capacity) : m_name(inName), m_capacity(capacity)
+{
+}
+
+
+template <class T, int N>
+Truck<T,N>::~Truck()
+{
+    delete &m_curDelivery;
+    delete &m_item;
+}
+
+
+template <class T, int N>
+Tqueue<T, N>
+Truck<T,N>::GetItem() const
+{
+    return m_item;
+}
+
+
+//template <class T, int N>
+//const T &
+//Truck<T,N>::GetItemAt(int index) const
+//{
+//    return m_item.
+//}
+
+
+template <class T, int N>
+void
+Truck<T,N>::AddItem(T &inputObject)
+{
+    cerr << "Truck<T,N>::AddItem()" << endl;
+}
+
+
+template <class T, int N>
+void
+Truck<T,N>::DeliverItemFromTruck()
+{
+    cerr << "Truck<T,N>::DeliverItemFromTruck()" << endl;
+}
+
+
+template <class T, int N>
+void
+Truck<T,N>::AddDelivery(Delivery &)
+{
+    cerr << "Truck<T,N>::AddDelivery()" << endl;
+}
+
+
+template <class T, int N>
+void
+Truck<T,N>::CompleteDelivery()
+{
+    cerr << "Truck<T,N>::CompleteDelivery()" << endl;
+}
+
+
+// GetDeliveryAt
+// Return the delivery at the specified index
+template <class T, int N>
+Delivery &
+Truck<T,N>::GetDeliveryAt(int index)
+{
+    return m_curDelivery[index];
+}
+
+
+// GetDelivery
+// Return the entire delivery vector
+template <class T, int N>
+vector<Delivery>
+Truck<T,N>::GetDelivery() const
+{
+    return m_curDelivery;
+}
+
+
+template <class T, int N>
+void Truck<T,N>::SetTime(int time) {
+    m_time = time;
+}
+
+template <class T, int N>
+int Truck<T,N>::GetTime()  {
+    return m_time;
+}
+
+template <class T, int N>
+double Truck<T,N>::GetCapacity() const {
+    return m_capacity;
+}
+template <class T, int N>
+string Truck<T,N>::GetName() const {
+    return m_name;
+}
 
 
 #endif

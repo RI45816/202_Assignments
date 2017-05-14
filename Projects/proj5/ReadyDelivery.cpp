@@ -10,76 +10,73 @@
 
 using namespace std;
 
-ReadyDelivery::ReadyDelivery()
-{
+ReadyDelivery::ReadyDelivery() {
     cerr << "ReadyDelivery::ReadyDelivery()" << endl;
 }
 
-
-ReadyDelivery::ReadyDelivery(string truckFile, string deliveryFile, string itemFile) : m_truckFile(truckFile), m_deliveryFile(deliveryFile), m_itemFile(itemFile)
-{
+ReadyDelivery::ReadyDelivery(string truckFile, string deliveryFile, string itemFile) : m_truckFile(truckFile), m_deliveryFile(deliveryFile), m_itemFile(itemFile) {
     LoadItem();
+    LoadTruck();
+    LoadDelivery();
 }
 
-
 void
-ReadyDelivery::LoadTruck()
-{
-    // Open the truck file
-    ifstream file(m_truckFile.c_str());
-    string line;
+ReadyDelivery::LoadTruck() {
+        // Open the truck file
+    ifstream file(m_itemFile.c_str());
     
-//    while (getline(file,line))
-//        m_truck()
+    // Load the truck file
+    stringstream ss; // Stream variable
+    ss << file.rdbuf(); // Read the file buffer
+    
+    // Add the trucks
+    string name; // Temp variable
+    int capacity;
+//    while (ss >> name >> capacity) 
+//        m_truck.push_back(Truck(n1ame,capacity));
+  
+
 }
 
-
 void
-ReadyDelivery::LoadDelivery()
-{
-    cerr << "ReadyDelivery::LoadDelivery()" << endl;
+ReadyDelivery::LoadDelivery() {
+        // Open the item file
+    ifstream file(m_itemFile.c_str());
+    
+    // Load the item file
+    stringstream ss; // Stream variable
+    ss << file.rdbuf(); // Read the file buffer
+    
+    // Add the items
+    string name; // Temp variable
+    int numItems;
+    int RTMinute;
+    while (ss >> name >>numItems >> RTMinute ) 
+        m_delivery.push_back(Delivery(name,numItems,RTMinute));
+
+
 }
 
 
 // LoadItem
 // Load the items
+
 void
-ReadyDelivery::LoadItem()
-{
-    // Open the truck file
+ReadyDelivery::LoadItem() {
+    // Open the item file
     ifstream file(m_itemFile.c_str());
-    string line;
     
-    while (getline(file,line))
-        Split(line);
+    // Load the item file
+    stringstream ss; // Stream variable
+    ss << file.rdbuf(); // Read the file buffer
     
-    
-}
+    // Add the items
+    string name; // Temp variable
+    int weight;
+    while (ss >> name >> weight) 
+        m_item.push_back(Item(name,weight));
 
-// Split
-// Split the string into an array
 
-string* ReadyDelivery::Split(string s) {
-    static string arr[3];
-    
-    int pos = 0;
-    int index = 0;
-   
-    while (~(pos=s.find("    ",pos))) {
-    cout << pos;
-    arr[index++] = s.substr(0,pos);
-    cout << arr[index-1];
-    s=s.substr(pos);
-    cout << s;
-    }
-    arr[index++] = s;
-    return arr;
-//do
-//   {
-//    pos = s.find("    ",pos);
-//        
-//    }
-//    while (pos != string::npos)
 }
 
 vector<Item> ReadyDelivery::GetItem() {

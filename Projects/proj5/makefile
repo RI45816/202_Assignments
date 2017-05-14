@@ -1,31 +1,41 @@
-CXX = g++
+EXE = proj5
 CXXFLAGS = -Wall -g
+SOURCES = $(wildcard *.cpp)
+OBJS = $(SOURCES:.cpp=.o)
+DEPS = $(wildcard *.h)
 
-proj5: driver.cpp Tqueue.h Item.o Truck.h ReadyDelivery.o Delivery.o ManageDelivery.o
-	$(CXX) $(CXXFLAGS) Tqueue.h driver.cpp Item.o Truck.h ReadyDelivery.o ManageDelivery.o Delivery.o -o proj5
+# proj5: driver.cpp Tqueue.h Item.o Truck.h ReadyDelivery.o Delivery.o ManageDelivery.o
+	# $(CXX) $(CXXFLAGS) Tqueue.h driver.cpp Item.o Truck.h ReadyDelivery.o ManageDelivery.o Delivery.o -o proj5
 
-ManageDelivery.o: ManageDelivery.h ManageDelivery.cpp Item.o Delivery.o Tqueue.h Truck.h ReadyDelivery.o
-	$(CXX) $(CXXFLAGS) -c ManageDelivery.cpp
+all: $(EXE) run1
 
-ReadyDelivery.o: ReadyDelivery.h ReadyDelivery.cpp Item.o Delivery.o Tqueue.h Truck.h
-	$(CXX) $(CXXFLAGS) -c ReadyDelivery.cpp
+$(EXE): $(OBJS)
+	$(CXX) $(OBJS) -o $(EXE)	
+	
+	
+# ManageDelivery.o: ManageDelivery.h ManageDelivery.cpp Item.o Delivery.o Tqueue.h Truck.h ReadyDelivery.o
+	# $(CXX) $(CXXFLAGS) -c ManageDelivery.cpp
 
-Item.o: Item.cpp Item.h
-	$(CXX) $(CXXFLAGS) -c Item.cpp
+# ReadyDelivery.o: ReadyDelivery.h ReadyDelivery.cpp Item.o Delivery.o Tqueue.h Truck.h
+	# $(CXX) $(CXXFLAGS) -c ReadyDelivery.cpp
 
-Delivery.o: Delivery.cpp Delivery.h
-	$(CXX) $(CXXFLAGS) -c Delivery.cpp
-
+%.o: %.cpp
+	$(CXX) $(CXXFLAGS) -c $< 
+	
+	
 #Use these to test the Tqueue and Truck but make sure to comment out or delete!
-#Truck.o: Truck.h Tqueue.o
-#	$(CXX) $(CXXFLAGS) -c Truck.h
+# Truck.o: Truck.h Tqueue.o
+	# $(CXX) $(CXXFLAGS) -c Truck.h
 
-#Tqueue.o: Tqueue.h
-#	$(CXX) $(CXXFLAGS) -c Tqueue.h
+# Tqueue.o: Tqueue.h
+	# $(CXX) $(CXXFLAGS) -c Tqueue.h
 
 clean:
-	rm *.o*
-	rm *~ 
+	rm -f $(EXE) $(OBJS)
+	# rm *.o*
+	# rm *~ 
+
+	
 
 #Rules to test your projects
 run:
@@ -49,3 +59,11 @@ valgrind2:
 
 valgrind3:
 	valgrind ./proj5 proj5_truck_t3.txt proj5_delivery_t3.txt proj5_item_t3.txt
+	
+depend: .depend
+
+.depend: $(DEPS)
+	rm -f ./.depend
+	$(CC) $(CFLAGS) -MM $^ > ./.depend;
+
+include .depend
