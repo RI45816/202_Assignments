@@ -14,7 +14,6 @@
       <in>Truck.cpp</in>
       <in>Truck.h</in>
       <in>driver.cpp</in>
-      <in>stacktrace.h</in>
     </df>
   </logicalFolder>
   <projectmakefile>makefile</projectmakefile>

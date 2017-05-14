@@ -43,7 +43,7 @@ public:
   //Name: Overloaded assignment operator - Not used but required for project 5
   //Precondition: Existing Tqueue
   //Postcondition: Sets one Tqueue to same as a second Tqueue using =
-  Tqueue<T,N>& operator=( Tqueue<T,N> y); //Overloaded assignment operator for queue
+//  Tqueue<T,N>& operator=( Tqueue<T,N> y); //Overloaded assignment operator for queue
   
   
   
@@ -121,15 +121,15 @@ Tqueue<T,N>::isFull()
 }
 
 
-template <class T, int N>
-Tqueue<T, N> &
-Tqueue<T,N>::operator=(Tqueue<T, N> y)
-{
-    m_back = y.m_back;
-    m_data = y.m_data;
-    m_front = y.m_back;
-    return *this;
-}
+//template <class T, int N>
+//Tqueue<T, N> &
+//Tqueue<T,N>::operator=(Tqueue<T, N> y)
+//{
+//    m_back = y.m_back;
+//    m_data = y.m_data;
+//    m_front = y.m_back;
+//    return *this;
+//}
 
 
 #endif
