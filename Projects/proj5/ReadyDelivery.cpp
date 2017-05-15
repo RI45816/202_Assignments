@@ -15,7 +15,6 @@ ReadyDelivery::ReadyDelivery() {
 }
 
 ReadyDelivery::ReadyDelivery(string truckFile, string deliveryFile, string itemFile) : m_truckFile(truckFile), m_deliveryFile(deliveryFile), m_itemFile(itemFile) {
-    cout << 3;
     LoadItem();
     LoadDelivery();
     LoadTruck();
@@ -27,7 +26,6 @@ ReadyDelivery::ReadyDelivery(string truckFile, string deliveryFile, string itemF
 void
 ReadyDelivery::LoadTruck() {
 
-    cout << 5;
 
     // Open the truck file
     ifstream file(m_truckFile.c_str());
@@ -86,7 +84,6 @@ ReadyDelivery::LoadItem() {
     stringstream ss; // Stream variable
     ss << file.rdbuf(); // Read the file buffer
 
-    cout << 4;
     // Add the items
 
     // Temp variables

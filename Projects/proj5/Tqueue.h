@@ -59,8 +59,6 @@ private:
 
 template <class T, int N>
 Tqueue<T, N>::Tqueue() {
-    cout << 7;
-    cout << isFull() << isEmpty();
     m_data = new T[N];
     m_back = m_front = N - 1;
 }

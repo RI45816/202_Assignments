@@ -7,7 +7,7 @@ DEPS = $(wildcard *.h)
 # proj5: driver.cpp Tqueue.h Item.o Truck.h ReadyDelivery.o Delivery.o ManageDelivery.o
 	# $(CXX) $(CXXFLAGS) Tqueue.h driver.cpp Item.o Truck.h ReadyDelivery.o ManageDelivery.o Delivery.o -o proj5
 
-all: $(EXE) run1
+all: $(EXE) run2
 
 c: clean all
 
@@ -35,7 +35,7 @@ $(EXE): $(OBJS)
 	# $(CXX) $(CXXFLAGS) -c Tqueue.h
 
 clean:
-	rm -f $(EXE) $(OBJS)
+	rm -f $(EXE) $(OBJS) $(wildcard *.stackdump)
 	# rm *.o*
 	# rm *~ 
 

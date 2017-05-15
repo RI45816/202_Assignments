@@ -99,12 +99,10 @@ private:
 
 template <class T, int N>
 Truck<T, N>::Truck(string inName, int capacity) : m_name(inName), m_capacity(capacity) {
-    cout << 6;
 }
 
 template <class T, int N>
 Truck<T, N>::~Truck() {
-    cout << 9;
     //    m_curDelivery.erase();
 }
 
@@ -137,12 +135,13 @@ Truck<T, N>::DeliverItemFromTruck() {
 
 // AddDelivery
 // Add a delivery to the vector
+
 template <class T, int N>
 void
 Truck<T, N>::AddDelivery(Delivery &d) {
     cout << "Delivery Time: " << d.GetRTMinute() << endl;
     cout << "Delivery for: " << d.GetName() << endl;
-    cout << "Delivered: " << d.GetNumItem() << endl;
+    cout << "Delivered: " << d.GetNumItem() << endl << endl;
 
     m_curDelivery.push_back(d);
 

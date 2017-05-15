@@ -24,7 +24,8 @@ ManageDelivery::StartDelivery() {
     // Add deliveries to truck
     //            truckCapacity = m_truck[0].GetCapacity(); // Store truck capacity
     int numDeliveries = m_delivery.size();
-    for (int capacity = 0, truck = 0, i = 0, truckCapacity = m_truck[truck].GetCapacity(); i < numDeliveries;) {
+    int numTruck = m_truck.size();
+    for (int capacity = 0, truck = 0, i = 0, truckCapacity = m_truck[truck].GetCapacity(); i < numDeliveries ;) 
         if (capacity + m_delivery[i].GetNumItem() <= truckCapacity) {
             m_truck[truck].AddDelivery(m_delivery[i]);
             capacity += m_delivery[i++].GetNumItem();
@@ -32,21 +33,22 @@ ManageDelivery::StartDelivery() {
             truckCapacity = m_truck[truck++].GetCapacity();
             capacity = 0;
         }
-    }
-
+    
+    cout <<  1;
     // Load items onto the truck
-    
+
     int itemIndex = 0;
-    
+
     cout << "\n*****Loading Truck (" << m_truck[0].GetName() << ")*****" << endl;
-    for (int delivery=0; delivery < numDeliveries; delivery++)
-        for (int i=0; i<m_delivery[i].GetNumItem();i++,itemIndex++){
-        m_truck[0].AddItem(m_item[itemIndex]);
-        cout << m_item[itemIndex].GetName() << " loaded into " << m_truck[0].GetName() << endl;
+    for (int truck = 0; truck < numTruck; truck++) {
+        for (int delivery = 0; delivery < m_truck[truck].GetDeliveryAt(delivery).GetNumItem(); delivery++)
+            for (int i = 0; i < m_delivery[delivery].GetNumItem(); i++, itemIndex++) {
+                m_truck[truck].AddItem(m_item[itemIndex]);
+                cout << m_item[itemIndex].GetName() << " loaded into " << m_truck[truck].GetName() << endl;
+            }
+
+        cout << "\n**Truck Name: " << m_truck[0].GetName() << "**" << endl;
     }
-
-    cout << "\n**Truck Name: " << m_truck[0].GetName() << "**" << endl;
-
     // Add deliveries to the truck
 
     //            cout << "***********Delivery " << i + 1 << "*************" << endl;
