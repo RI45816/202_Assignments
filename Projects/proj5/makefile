@@ -58,10 +58,10 @@ run3:
 valgrind1: clean $(EXE)
 	valgrind ./proj5 proj5_truck_t1.txt proj5_delivery_t1.txt proj5_item_t1.txt
 
-valgrind2:
+valgrind2: $(EXE)
 	valgrind ./proj5 proj5_truck_t2.txt proj5_delivery_t2.txt proj5_item_t2.txt 
 
-valgrind3:
+valgrind3: $(EXE)
 	valgrind ./proj5 proj5_truck_t3.txt proj5_delivery_t3.txt proj5_item_t3.txt
 	
 depend: .depend

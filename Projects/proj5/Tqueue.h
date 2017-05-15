@@ -96,6 +96,9 @@ template <class T, int N>
 void
 Tqueue<T, N>::dequeue(T &t) {
     t = m_data[m_front--];
+    
+    if (isEmpty())
+        m_front = m_back = N - 1;
 }
 
 // queueFront

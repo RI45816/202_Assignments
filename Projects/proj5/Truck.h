@@ -98,7 +98,7 @@ private:
 //Implement the class definition below
 
 template <class T, int N>
-Truck<T, N>::Truck(string inName, int capacity) : m_name(inName), m_capacity(capacity) {
+Truck<T, N>::Truck(string inName, int capacity) : m_name(inName), m_capacity(capacity), m_time(0) {
 }
 
 template <class T, int N>
@@ -127,10 +127,16 @@ Truck<T, N>::AddItem(T &inputObject) {
     return m_item.enqueue(inputObject);
 }
 
+// DeliverItemFromTruck
+// Do the delivery
+
 template <class T, int N>
 void
 Truck<T, N>::DeliverItemFromTruck() {
-    cerr << "Truck<T,N>::DeliverItemFromTruck()" << endl;
+    int payload = m_curDelivery.front().GetNumItem();
+    Item it;
+    for (int i = 0; i < payload; i++) 
+        m_item.dequeue(it);
 }
 
 // AddDelivery
@@ -139,18 +145,21 @@ Truck<T, N>::DeliverItemFromTruck() {
 template <class T, int N>
 void
 Truck<T, N>::AddDelivery(Delivery &d) {
-    cout << "Delivery Time: " << d.GetRTMinute() << endl;
-    cout << "Delivery for: " << d.GetName() << endl;
-    cout << "Delivered: " << d.GetNumItem() << endl << endl;
-
     m_curDelivery.push_back(d);
 
 }
 
+// CompleteDelivery
+
 template <class T, int N>
 void
 Truck<T, N>::CompleteDelivery() {
-    cerr << "Truck<T,N>::CompleteDelivery()" << endl;
+    Delivery d = m_curDelivery.front();
+    m_time += d.GetRTMinute();
+    cout << "Delivery Time: " << m_time << endl;
+    cout << "Delivery for: " << d.GetName() << endl;
+    cout << "Delivered: " << d.GetNumItem() << endl;
+    m_curDelivery.erase(m_curDelivery.begin());
 }
 
 
@@ -175,7 +184,7 @@ Truck<T, N>::GetDelivery() const {
 
 template <class T, int N>
 void Truck<T, N>::SetTime(int time) {
-    m_time = time;
+    m_time += time;
 }
 
 template <class T, int N>

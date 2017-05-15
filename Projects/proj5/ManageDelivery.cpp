@@ -11,57 +11,64 @@ using namespace std;
 
 ManageDelivery::ManageDelivery(vector<Truck<Item, MAX_CAPACITY> > truck, vector<Delivery> delivery, vector<Item> item) : m_truck(truck), m_delivery(delivery), m_item(item) {
     cout << "Trucks Loaded: " << m_truck.size() << endl;
-    //    cout << m_truck[0].isFull() <<    m_truck[0].isEmpty();
     cout << "Deliveries Loaded: " << m_delivery.size() << endl;
     cout << "Items Loaded: " << m_item.size() << endl;
     cout << "Start Time: 0" << endl;
     StartDelivery();
+    DisplayItemLeft();
 }
 
 void
 ManageDelivery::StartDelivery() {
 
-    // Add deliveries to truck
-    //            truckCapacity = m_truck[0].GetCapacity(); // Store truck capacity
-    int numDeliveries = m_delivery.size();
-    int numTruck = m_truck.size();
-    for (int capacity = 0, truck = 0, i = 0, truckCapacity = m_truck[truck].GetCapacity(); i < numDeliveries ;) 
-        if (capacity + m_delivery[i].GetNumItem() <= truckCapacity) {
-            m_truck[truck].AddDelivery(m_delivery[i]);
-            capacity += m_delivery[i++].GetNumItem();
-        } else {
-            truckCapacity = m_truck[truck++].GetCapacity();
-            capacity = 0;
-        }
+
+    int numTrucks = m_truck.size();
+    Truck<Item, MAX_CAPACITY> * t;
     
-    cout <<  1;
-    // Load items onto the truck
+    // Continous loop through all the trucks
+    
+    
+    // Add deliveries to struck until maximum capacity reached
+    for (int truck = 0, truckCapacity = m_truck[truck].GetCapacity(); !m_delivery.empty(); truck++, truck %= numTrucks) {
+        t = &m_truck[truck];
+        for (int capacity = 0, i = 0, numDeliveries = m_delivery.size(); capacity + m_delivery[i].GetNumItem() <= truckCapacity && i < numDeliveries; capacity += m_delivery[i++].GetNumItem())
+            t->AddDelivery(m_delivery[i]);
 
-    int itemIndex = 0;
-
-    cout << "\n*****Loading Truck (" << m_truck[0].GetName() << ")*****" << endl;
-    for (int truck = 0; truck < numTruck; truck++) {
-        for (int delivery = 0; delivery < m_truck[truck].GetDeliveryAt(delivery).GetNumItem(); delivery++)
-            for (int i = 0; i < m_delivery[delivery].GetNumItem(); i++, itemIndex++) {
-                m_truck[truck].AddItem(m_item[itemIndex]);
-                cout << m_item[itemIndex].GetName() << " loaded into " << m_truck[truck].GetName() << endl;
+        // Load items to the deliveries
+        int numDeliveriesinTruck = t->GetDelivery().size();
+        cout << "\n*****Loading Truck (" << t->GetName() << ")*****" << endl;
+        for (int delivery = 0; delivery < numDeliveriesinTruck; delivery++)
+            for (int i = 0; i < t->GetDeliveryAt(delivery).GetNumItem(); i++) {
+                t->AddItem(m_item[0]);
+                cout << m_item[0].GetName() << " loaded into " << t->GetName() << endl;
+                m_item.erase(m_item.begin());
             }
-
-        cout << "\n**Truck Name: " << m_truck[0].GetName() << "**" << endl;
+        
+        // Deliver the deliveries
+        t->SetTime(10);
+        cout << "\n**Truck Name: " << t->GetName() << "**" << endl;
+        DeliverItem(truck);
     }
-    // Add deliveries to the truck
-
-    //            cout << "***********Delivery " << i + 1 << "*************" << endl;
 }
 
 void
 ManageDelivery::DeliverItem(int j) {
+    Truck<Item, MAX_CAPACITY> * deliveryTruck = &m_truck[j];
+    int numDeliveriesinTruck = deliveryTruck->GetDelivery().size();
+    for (int i = 0; i < numDeliveriesinTruck; i++) {
+        cout << "***********Delivery " << i + 1 << "*************" << endl;
+        deliveryTruck->DeliverItemFromTruck();
+        deliveryTruck->CompleteDelivery();
+        m_delivery.erase(m_delivery.begin());
+    }
 
 }
 
 void
 ManageDelivery::DisplayItemLeft() {
-    cerr << "ManageDelivery::DisplayItemLeft()" << endl;
+    cout << "\n*****Items Left After Deliveries*****" << endl;
+    for (int i = 0, size = m_item.size(); i < size; i++)
+        cout << "Item " << i + 1 << " - Name: " << m_item[i].GetName() << "- Weight: " << m_item[i].GetWeight() << "" << endl;
 }
 
 
