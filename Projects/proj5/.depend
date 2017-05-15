@@ -1,7 +1,8 @@
-Delivery.o: Delivery.h
-Item.o: Item.h
+Tqueue.o: Tqueue.h
+Truck.o: Truck.h Item.h Tqueue.h Delivery.h
 ManageDelivery.o: ManageDelivery.h ReadyDelivery.h Truck.h Item.h \
  Tqueue.h Delivery.h
 ReadyDelivery.o: ReadyDelivery.h Truck.h Item.h Tqueue.h Delivery.h
-Tqueue.o: Tqueue.h
-Truck.o: Truck.h Item.h Tqueue.h Delivery.h
+hello.o: hello.h
+Item.o: Item.h
+Delivery.o: Delivery.h

@@ -1,5 +1,5 @@
 /***********************************************************************
- * AUTHOR: U-DESKTOP-ANLHPM1\amozu <amozu>
+ * AUTHOR: Uzoma Uwanamodo
  *   FILE: .//ReadyDelivery.cpp
  *   DATE: Sat May 13 04:25:25 2017
  *  DESCR: 
@@ -16,19 +16,19 @@ ReadyDelivery::ReadyDelivery() {
 
 ReadyDelivery::ReadyDelivery(string truckFile, string deliveryFile, string itemFile) : m_truckFile(truckFile), m_deliveryFile(deliveryFile), m_itemFile(itemFile) {
     cout << 3;
-//    LoadItem();
-//    LoadDelivery();
-//    LoadTruck();
+    LoadItem();
+    LoadDelivery();
+    LoadTruck();
 }
 
-
-
+// LoadTruck
+// Load the Truck
 
 void
 ReadyDelivery::LoadTruck() {
-    
+
     cout << 5;
-    
+
     // Open the truck file
     ifstream file(m_truckFile.c_str());
 
@@ -37,15 +37,19 @@ ReadyDelivery::LoadTruck() {
     ss << file.rdbuf(); // Read the file buffer
 
     // Add the trucks
-    string name; // Temp variable
+
+    // Temp variables
+    string name;
     int capacity;
-    
-    
-    while (ss >> name >> capacity) {}
-//        m_truck.push_back(Truck<Item,MAX_CAPACITY>(name,capacity));
-    
+
+    while (ss >> name >> capacity)
+        m_truck.push_back(Truck<Item, MAX_CAPACITY>(name, capacity));
+
 
 }
+
+// LoadDelivery
+// Load the delivery vector
 
 void
 ReadyDelivery::LoadDelivery() {
@@ -56,10 +60,13 @@ ReadyDelivery::LoadDelivery() {
     stringstream ss; // Stream variable
     ss << file.rdbuf(); // Read the file buffer
 
-    // Add the items
-    string name; // Temp variable
+    // Add the deliveries
+
+    // Temp variables
+    string name;
     int numItems;
     int RTMinute;
+
     while (ss >> name >> numItems >> RTMinute)
         m_delivery.push_back(Delivery(name, numItems, RTMinute));
 
@@ -81,21 +88,33 @@ ReadyDelivery::LoadItem() {
 
     cout << 4;
     // Add the items
-    string name; // Temp variable
-    int weight;
+
+    // Temp variables
+    string name;
+    float weight;
+    
     while (ss >> name >> weight)
         m_item.push_back(Item(name, weight));
     
-    file.close();
+//    file.close();
 }
+
+// GetItem
+// Getter for the Items vector
 
 vector<Item> ReadyDelivery::GetItem() {
     return m_item;
 }
 
+// GetDelivery
+// Getter for the Deliveries vector
+
 vector<Delivery> ReadyDelivery::GetDelivery() {
     return m_delivery;
 }
+
+// GetTruck
+// Getter for the Trucks vector
 
 vector<Truck<Item, MAX_CAPACITY> > ReadyDelivery::GetTruck() {
     return m_truck;
